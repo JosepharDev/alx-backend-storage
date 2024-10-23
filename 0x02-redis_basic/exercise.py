@@ -7,11 +7,11 @@ from typing import Union
 
 
 class Cache:
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the Cache class, set up a Redis client,
             and flush the Redis database."""
         self.__redis = redis.Redis()
-        self.__redis.flushdb()
+        self.__redis.flushdb(True)
 
     def store(self, data:  Union[str, bytes, int, float]) -> str:
         """Store the data in Redis with a random
